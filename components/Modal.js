@@ -1,6 +1,8 @@
 import { useRecoilState } from "recoil";
 import { modalState, postIdState } from "../atoms/modalAtom";
 import { Dialog, Transition } from "@headlessui/react";
+import Picker from "@emoji-mart/react";
+import data from "@emoji-mart/data";
 import { Fragment, useEffect, useRef, useState } from "react";
 import {
   onSnapshot,
@@ -47,6 +49,14 @@ function Modal() {
       }),
     [db]
   );
+
+  const addEmoji = (e) => {
+    let sym = e.unified.split("-");
+    let codesArray = [];
+    sym.forEach((el) => codesArray.push("0x" + el));
+    let emoji = String.fromCodePoint(...codesArray);
+    setComment(comment + emoji);
+  };
 
   const filePickerRef = useRef(null);
 
@@ -210,7 +220,10 @@ function Modal() {
                           </div>
 
                           <div className="icon">
-                            <FaceSmileIcon className="text-[#1d9bf0] h-[22px]" />
+                            <FaceSmileIcon
+                              className="text-[#1d9bf0] h-[22px]"
+                              onClick={() => setShowEmojis(!showEmojis)}
+                            />
                           </div>
 
                           <div className="icon">
@@ -232,6 +245,13 @@ function Modal() {
               </div>
             </div>
           </Transition.Child>
+          <div>
+            {showEmojis && (
+              <div className="absolute mt-[-20px] ml-[670px] max-w-[320px] rounded-[20px]">
+                <Picker data={data} onEmojiSelect={addEmoji} theme="dark" />
+              </div>
+            )}
+          </div>
         </div>
       </Dialog>
     </Transition.Root>
