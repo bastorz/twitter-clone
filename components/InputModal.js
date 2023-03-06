@@ -44,6 +44,7 @@ function InputModal() {
   const [input, setInput] = useState("");
 
   const filePickerRef = useRef(null);
+  º;
 
   const addImageToPost = (e) => {
     const reader = new FileReader();
