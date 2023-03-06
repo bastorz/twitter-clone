@@ -25,7 +25,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import Moment from "react-moment";
 import { useRecoilState } from "recoil";
-import { db } from "../../firebase";
+import { db } from "../firebase";
 import Menu from "@mui/material/Menu";
 import { modalState, postIdState } from "../atoms/modalAtom";
 import { Button, MenuItem } from "@mui/material";

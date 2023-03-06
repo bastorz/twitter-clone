@@ -14,7 +14,7 @@ import {
 import { signOut, useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import { useRecoilState } from "recoil";
-import { modalState, postIdState } from "../atoms/modalAtom";
+import { modalState, postIdState } from "../pages/atoms/modalAtom";
 
 function Sidebar() {
   const [isOpen, setIsOpen] = useRecoilState(modalState);

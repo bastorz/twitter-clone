@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import Picker from "@emoji-mart/react";
-import { db, storage } from "../../firebase";
+import { db, storage } from "../firebase";
 import data from "@emoji-mart/data";
 import {
   CalendarIcon,

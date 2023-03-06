@@ -23,7 +23,7 @@ import { useEffect, useState } from "react";
 import Moment from "react-moment";
 import { useRecoilState } from "recoil";
 import { modalState, postIdState } from "../atoms/modalAtom";
-import { db } from "../../firebase";
+import { db } from "../firebase";
 
 export const Post = ({ id, post, postPage }) => {
   const { data: session } = useSession();
