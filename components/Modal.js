@@ -10,7 +10,7 @@ import {
   serverTimestamp,
   updateDoc,
 } from "@firebase/firestore";
-import { db } from "../../firebase";
+import { db } from "../firebase";
 import { useSession } from "next-auth/react";
 import {
   CalendarIcon,
