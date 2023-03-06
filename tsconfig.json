@@ -15,6 +15,18 @@
     "jsx": "preserve",
     "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "pages/components/Input.js",
+    "pages/components/Login.js",
+    "pages/index.js",
+    "pages/components/Sidebar.js",
+    "pages/components/Feed.js",
+    "pages/_app.js",
+    "firebase.js",
+    "pages/components/SidebarLink.js"
+  ],
   "exclude": ["node_modules"]
 }
