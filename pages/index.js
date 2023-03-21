@@ -35,7 +35,7 @@ export default function Home(providers) {
   );
 }
 
-export async function getStaticProps(context) {
+export async function getServerSideProps(context) {
   const providers = await getProviders();
   const session = await getSession(context);
 
