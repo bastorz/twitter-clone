@@ -20,7 +20,7 @@ import Comment from "../components/Comment";
 import Head from "next/head";
 import { PostInside } from "../components/PostInside";
 
-function PostPage({ trendingResults, followResults, providers }) {
+function PostPage(providers) {
   const { data: session } = useSession();
   const [isOpen, setIsOpen] = useRecoilState(modalState);
   const [post, setPost] = useState();
@@ -84,10 +84,7 @@ function PostPage({ trendingResults, followResults, providers }) {
             </div>
           )}
         </div>
-        <Widgets
-          trendingResults={trendingResults}
-          followResults={followResults}
-        />
+        <Widgets />
 
         {isOpen && <Modal />}
       </main>
@@ -98,19 +95,11 @@ function PostPage({ trendingResults, followResults, providers }) {
 export default PostPage;
 
 export async function getServerSideProps(context) {
-  const trendingResults = await fetch("https://www.jsonkeeper.com/b/NKEV").then(
-    (res) => res.json()
-  );
-  const followResults = await fetch("https://www.jsonkeeper.com/b/WWMJ").then(
-    (res) => res.json()
-  );
   const providers = await getProviders();
   const session = await getSession(context);
 
   return {
     props: {
-      trendingResults,
-      followResults,
       providers,
       session,
     },

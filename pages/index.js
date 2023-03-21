@@ -8,7 +8,7 @@ import InputModal from "../components/InputModal";
 import { inputModalState } from "../atoms/modalAtom";
 import { useRecoilState } from "recoil";
 
-export default function Home({ trendingResults, followResults, providers }) {
+export default function Home(providers) {
   const { data: session } = useSession();
   const [isOpen, setIsOpen] = useRecoilState(inputModalState);
 
@@ -25,8 +25,8 @@ export default function Home({ trendingResults, followResults, providers }) {
         <Sidebar />
         <Feed />
         <Widgets
-          trendingResults={trendingResults}
-          followResults={followResults}
+        // trendingResults={trendingResults}
+        // followResults={followResults}
         />
 
         {isOpen && <InputModal />}
@@ -35,20 +35,14 @@ export default function Home({ trendingResults, followResults, providers }) {
   );
 }
 
-export async function getServerSideProps(context) {
-  const trendingResults = await fetch("https://www.jsonkeeper.com/b/NKEV").then(
-    (res) => res.json()
-  );
-  const followResults = await fetch("https://www.jsonkeeper.com/b/WWMJ").then(
-    (res) => res.json()
-  );
+export async function getStaticProps(context) {
   const providers = await getProviders();
   const session = await getSession(context);
 
   return {
     props: {
-      trendingResults,
-      followResults,
+      // trendingResults,
+      // followResults,
       providers,
       session,
     },

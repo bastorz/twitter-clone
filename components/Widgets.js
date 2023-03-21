@@ -1,4 +1,7 @@
-import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
+import {
+  EllipsisHorizontalIcon,
+  MagnifyingGlassIcon,
+} from "@heroicons/react/24/outline";
 import Trending from "./Trending";
 
 function Widgets({ trendingResults, followResults }) {
@@ -15,42 +18,83 @@ function Widgets({ trendingResults, followResults }) {
         </div>
       </div>
 
-      <div className="text-[#d9d9d9] space-y-3 bg-[#15181c] pt-2 rounded-xl w-11/12 xl:w-9/12">
+      <div className="text-[#d9d9d9] space-y-6 bg-[#15181c] pt-2 rounded-xl w-11/12 xl:w-9/12">
         <h4 className="font-bold text-xl px-4">What's happening</h4>
-        {trendingResults.map((result, index) => (
-          <Trending key={index} result={result} />
-        ))}
+
+        <div className="flex justify-between px-4">
+          <div className="space-y-1">
+            <h3 className="text-sm text-gray-300/50">NBA · Last night</h3>
+            <p className="font-bold">Kings at Jazz</p>
+          </div>
+          <img src="nba.png" className="rounded-xl w-12 h-12 object-cover" />
+        </div>
+
+        <div className="flex justify-between px-4">
+          <div className="space-y-1">
+            <h3 className="text-sm text-gray-300/50">Trending in Spain</h3>
+            <p className="font-bold">#MocionDeCensura</p>
+            <p className="text-sm text-gray-300/50">65.3K Tweets</p>
+          </div>
+          <EllipsisHorizontalIcon className="h-5 hidden xl:inline ml-10" />
+        </div>
+
+        <div className="flex justify-between px-4">
+          <div>
+            <h3 className="text-sm text-gray-300/50">Politics - trending</h3>
+            <p className="font-bold">Presidente</p>
+            <p className="text-sm text-gray-300/50">752K Tweets</p>
+          </div>
+          <EllipsisHorizontalIcon className="h-5 hidden xl:inline ml-10" />
+        </div>
+
         <button className="hover:bg-white hover:bg-opacity-[0.03] px-4 py-3 cursor-pointer transition duration-200 ease-out flex items-center justify-between w-full text-[#1d9bf0] font-light">
           Show more
         </button>
       </div>
 
-      <div className="text-[#d9d9d9] space-y-3 bg-[#15181c] pt-2 rounded-xl w-11/12 xl:w-9/12">
+      <div className="text-[#d9d9d9] space-y-3 bg-[#15181c] pt-4 rounded-xl w-11/12 xl:w-9/12">
         <h4 className="font-bold text-xl px-4">Who to follow</h4>
-        {followResults.map((result, index) => (
-          <div
-            className="hover:bg-white hover:bg-opacity-[0.03] px-4 py-2 cursor-pointer transition duration-200 ease-out flex items-center"
-            key={index}
-          >
-            <img
-              src={result.userImg}
-              width={50}
-              height={50}
-              objectFit="cover"
-              className="rounded-full"
-            />
-            <div className="ml-4 leading-5 group">
-              <h4 className="font-bold group-hover:underline">
-                {result.username}
-              </h4>
-              <h5 className="text-gray-500 text-[15px]">{result.tag}</h5>
-            </div>
-            <button className="ml-auto bg-white text-black rounded-full font-bold text-sm py-1.5 px-3.5">
-              Follow
-            </button>
+        <div className="flex px-4">
+          <img
+            src="elonmusk.jpg"
+            width={45}
+            height={45}
+            className="rounded-full"
+          />
+          <div className="ml-4 leading-5 group">
+            <h4 className="font-bold group-hover:underline">Elon Musk</h4>
+            <h5 className="text-gray-500 text-[15px]">@elonmusk</h5>
           </div>
-        ))}
-        <button className="hover:bg-white hover:bg-opacity-[0.03] px-4 py-3 cursor-pointer transition duration-200 ease-out flex items-center justify-between w-full text-[#1d9bf0] font-light">
+          <button className="text-black rounded-full bg-white px-4 ml-16 mb-2 font-bold">
+            Follow
+          </button>
+        </div>
+        <div className="flex px-4">
+          <img
+            src="spacex.jpg"
+            width={45}
+            height={45}
+            className="rounded-full"
+          />
+          <div className="ml-4 leading-5 group">
+            <h4 className="font-bold group-hover:underline">SpaceX</h4>
+            <h5 className="text-gray-500 text-[15px]">@spacex</h5>
+          </div>
+          <button className="text-black rounded-full bg-white px-4 ml-[83px] mb-2 font-bold">
+            Follow
+          </button>
+        </div>
+        <div className="flex px-4">
+          <img src="nasa.jpg" width={45} height={45} className="rounded-full" />
+          <div className="ml-4 leading-5 group">
+            <h4 className="font-bold group-hover:underline">Nasa</h4>
+            <h5 className="text-gray-500 text-[15px]">@nasa</h5>
+          </div>
+          <button className="text-black rounded-full bg-white px-4 ml-24 mb-2 font-bold">
+            Follow
+          </button>
+        </div>
+        <button className="hover:bg-white hover:bg-opacity-[0.03] py-3 px-4 cursor-pointer transition duration-200 ease-out flex items-center justify-between w-full text-[#1d9bf0] font-light">
           Show more
         </button>
       </div>

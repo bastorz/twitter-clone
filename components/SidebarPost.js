@@ -15,13 +15,15 @@ import { signOut, useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import { useRecoilState } from "recoil";
 import { modalState, postIdState } from "../atoms/modalAtom";
+import { usePathname } from "next/navigation";
 
 function Sidebar() {
   const [isOpen, setIsOpen] = useRecoilState(modalState);
   const [postId, setPostId] = useRecoilState(postIdState);
   const { data: session } = useSession();
   const router = useRouter();
-  const id = window.location.pathname.replace("/", "");
+  const getId = usePathname();
+  const id = getId.substring(getId.lastIndexOf("/") + 1);
 
   const tagName = session.user.name.split(" ").join("").toLocaleLowerCase();
 
